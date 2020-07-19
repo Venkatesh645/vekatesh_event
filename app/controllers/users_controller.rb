@@ -15,16 +15,15 @@ class UsersController < ApplicationController
 	end
 
 	def show
-		binding.pry
+		# binding.pry
 	end
 
 	def edit
-		binding.pry
+		# binding.pry
 		@user =current_user
 	end
 
 	def create
-		binding.pry
 		@user=User.new(user_params)
 		if @user.save
 			flash[:success]="User created successfully"
@@ -38,7 +37,7 @@ class UsersController < ApplicationController
 	end
 
 	def update
-		binding.pry
+		# binding.pry
 		@user =User.find(params[:id])
 		if @user.update(user_params)
 		flash[:success]="User updated successfully"
@@ -51,7 +50,7 @@ class UsersController < ApplicationController
 	end
 
 	def destroy
-		binding.pry
+		# binding.pry
 		@user = User.find(current_user.id)
 		@user.destroy
 		session[:user_id]=nil
@@ -61,7 +60,7 @@ class UsersController < ApplicationController
 
 	private
 	def user_params
-		binding.pry
+		# binding.pry
 		params.require(:user).permit(:firstname, :lastname, :username, :email, :phone, :password, :password_confirmation, :attachment)
 	end
 end
